@@ -5,43 +5,78 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
+    
 
-    {% with categories=page.categories.all %}
-        {% if categories %}
-            <h3>Posted in:</h3>
-            <ul>
-                {% for category in categories %}
-                    <li style="display: inline">
-                        {% image category.icon fill-32x32 style="vertical-align: middle" %}
-                        {{ category.name }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+    <!-- ==================================================================== -->
 
-    <div class="intro">{{ page.intro }}</div>
-
-    {{ page.body|richtext }}
-
-    {% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
+    <section class="hero is-info is-medium is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed eiusmod tempor incididunt ut labore et dolore magna aliqua</h1>
+            </div>
         </div>
-    {% endfor %}
+    </section>
 
-    {% if page.tags.all.count %}
-        <div class="tags">
-            <h3>Tags</h3>
-            {% for tag in page.tags.all %}
-                <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
-            {% endfor %}
-        </div>
-    {% endif %}
 
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    <div class="container">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+                <!-- START ARTICLE -->
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title"><h1 class="title is-3">{{ page.title }}</h1></p>
+                                <p class="subtitle is-6"><i>{{ page.intro }}</i></p>
+                                <div class="tags has-addons level-item">
+                                    <span class="tag is-rounded is-info">Ben Hampson</span>
+                                    <span class="tag is-rounded"><p class="meta">{{ page.date }}</p></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            
+                            <!-- ARTICLE BODY -->
+                            {{ page.body|richtext }}
+
+                            <!-- GALLERY -->
+                            <div class="box level">
+                                {% for item in page.gallery_images.all %}
+                                    <div class="level-item">
+                                        {% image item.image max-200x200 %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- TAGS -->
+                            {% if page.tags.all.count %}
+                                <div class="tags">
+                                    <h6 class="mt-3 mr-1">Tags:</h6>
+                                    {% for tag in page.tags.all %}
+                                        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button" class="ml-1">{{ tag }}</button></a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            <!-- CATEGORIES -->
+                            {% with categories=page.categories.all %}
+                                {% if categories %}
+                                    <h6 class="mt-3">Posted in:</h6>
+                                    <p><ul>
+                                        {% for category in categories %}
+                                            <li style="display: inline">
+                                                {% image category.icon fill-32x32 style="vertical-align: middle" %}
+                                                {{ category.name }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul></p>
+                                {% endif %}
+                            {% endwith %}
+                            <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END ARTICLE -->
 
 {% endblock %}

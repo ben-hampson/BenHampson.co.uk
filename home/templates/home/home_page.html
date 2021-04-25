@@ -5,5 +5,17 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+
+<section class="hero is-medium is-link">
+    <div class="hero-body">
+      <p class="title">
+        {{ page.hero_title }}
+      </p>
+      <p class="subtitle">
+        {{ page.hero_subtitle }}
+      </p>
+    </div>
+  </section>
+
     {{ page.body|richtext }}
 {% endblock %}
