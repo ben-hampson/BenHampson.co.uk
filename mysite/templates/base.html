@@ -26,7 +26,46 @@
         {% endblock %}
     </head>
 
+    
     <body class="{% block body_class %}{% endblock %}">
+        
+        <!-- NAVBAR START -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="#">
+                <h1 class="title is-3">Ben Hampson</h1>
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Projects
+                </a>
+                <a class="navbar-item">
+                  Articles
+                </a>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary">
+                      <strong>Contact Me</strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        <!-- NAVBAR END -->
+
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}
@@ -37,5 +76,19 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+
+        <!-- FOOTER START -->
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+               Built with <strong><a href="https://wagtail.io/" target="_blank">Wagtail</a></strong>. Theming from <strong><a href="https://bulma.io" target="_blank">Bulma</a></strong>.</br>
+               <a href="https://github.com/Ben-Hampson/My-Website"><strong>Source code</strong></a>.
+              </p>
+            </div>
+          </footer>
+
+        <!-- FOOTER END -->
     </body>
+
 </html>
