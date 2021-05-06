@@ -7,42 +7,54 @@
 {% block content %}
 
 <section class="hero is-medium is-link">
-    <div class="hero-body">
-      <p class="title">
-        {{ page.hero_title }}
-      </p>
-      <p class="subtitle">
-        {{ page.hero_subtitle }}
-      </p>
-    </div>
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column is-5">
+        <p class="title">
+          {{ page.hero_title }}
+        </p>
+        <p class="subtitle">
+          {{ page.hero_subtitle }}
+        </p>
+      </div>
+      <div class="column"></div>
+    </div>  
+  </div>
   </section>
     
   {{ page.body|richtext }}
 
   <section class="section has-background-light">
-    <div class="container">
-      <div class="columns is-multiline">
-        {% for article in featured_articles %}
-          <div class="column is-one-third">
-            <article class="media notification is-info">
-              <figure class="media-left">
-                <span class="icon is-medium">
-                  <i class="fab fa-2x fa-css3-alt"></i>
-                </span>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <h1 class="title is-size-4">
-                    <a href="{% slugurl article.slug %}" class="">{{ article.title }}</h1></a>
-                  <p class="is-size-5">
-                    {{ article.intro }}
-                  </p>
-                </div>
+    <div class="columns">
+      <div class="column"></div>
+      <div class="column is-6">
+        <div class="container">
+          <div class="columns is-multiline">
+            {% for article in featured_articles %}
+              <div class="column is-one-third">
+                <article class="media notification is-info">
+                  <!-- <figure class="media-left">
+                    <span class="icon is-medium">
+                      <i class="fab fa-2x fa-css3-alt"></i>
+                    </span>
+                  </figure> -->
+                  <div class="media-content">
+                    <div class="content">
+                      <h1 class="title is-size-5">
+                        <a href="{% slugurl article.slug %}" class="">{{ article.title }}</h1></a>
+                      <p class="">
+                        {{ article.intro }}
+                      </p>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
+            {% endfor %}
           </div>
-        {% endfor %}
+        </div>
       </div>
+      <div class="column"></div>
     </div>
   </section>
 
