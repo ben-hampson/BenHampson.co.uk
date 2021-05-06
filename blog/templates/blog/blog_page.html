@@ -40,14 +40,21 @@
                             <!-- ARTICLE BODY -->
                             {{ page.body|richtext }}
 
+                            <!-- STREAMFIELDS TEST -->
+                            {% for block in page.content %}
+                                {% include_block block %}
+                            {% endfor %}
+
                             <!-- GALLERY -->
-                            <div class="box level">
-                                {% for item in page.gallery_images.all %}
-                                    <div class="level-item">
-                                        {% image item.image max-200x200 %}
-                                    </div>
-                                {% endfor %}
-                            </div>
+                            {% if page.gallery_images.all %}
+                                <div class="box level">
+                                    {% for item in page.gallery_images.all %}
+                                        <div class="level-item">
+                                            {% image item.image max-200x200 %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
 
                             <!-- TAGS -->
                             {% if page.tags.all.count %}

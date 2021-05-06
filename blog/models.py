@@ -7,10 +7,13 @@ from taggit.models import TaggedItemBase
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
+from wagtail.core.fields import StreamField
+
+from streams import blocks
 
 
 class BlogIndexPage(Page):
@@ -37,6 +40,14 @@ class BlogPage(Page):
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
     featured = models.BooleanField(default=False)
+    content = StreamField(
+        [
+            ("title_and_text", blocks.TitleAndTextBlock(classname="text_and_title")),
+            ("full_richtext", blocks.RichtextBlock(classname="richtext")),
+        ],
+        null=True,
+        blank=True
+    )
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -59,6 +70,7 @@ class BlogPage(Page):
         FieldPanel('featured'),
         FieldPanel('intro'),
         FieldPanel('body'),
+        StreamFieldPanel("content"),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 

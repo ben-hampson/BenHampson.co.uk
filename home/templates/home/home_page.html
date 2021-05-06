@@ -6,17 +6,51 @@
 
 {% block content %}
 
+<!-- HERO -->
 <section class="hero is-medium is-link">
   <div class="hero-body">
     <div class="columns">
       <div class="column"></div>
       <div class="column is-5">
-        <p class="title">
-          {{ page.hero_title }}
-        </p>
-        <p class="subtitle">
-          {{ page.hero_subtitle }}
-        </p>
+        <!-- HERO CONTENT -->
+        <div class="columns is-multiline">
+          <div class="column is-two-thirds">
+            <p class="title">
+              {{ page.hero_title }}
+            </p>
+            <p class="subtitle">
+              {{ page.hero_subtitle }}
+            </p>
+          </div>
+          <div class="column"></div>
+          <div class="column is-two-thirds">
+            <div class="level">
+              <div class="level-left">
+                <a href="https://github.com/ben-hampson" target="_blank">
+                  <span class="icon" style="font-size: 2em;">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+                <a href="https://twitter.com/bhampson" target="_blank">
+                  <span class="icon ml-3" style="font-size: 2em;">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+                <a href="https://www.linkedin.com/in/ben-hampson/" target="_blank">
+                  <span class="icon ml-3" style="font-size: 2em;">
+                    <i class="fab fa-linkedin"></i>
+                  </span>
+                </a>
+              </div>
+              <div class="level-right">
+                <a href="#">
+                  <button class="button is-white"><strong>Contact Me</strong></button>
+                </a>
+              </div>
+            </div>
+             
+          </div>
+        </div>
       </div>
       <div class="column"></div>
     </div>  
