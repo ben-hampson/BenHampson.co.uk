@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <section class="hero is-info is-medium is-bold">
+    <section class="hero is-info is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">{{ page.title }}<br>
@@ -20,31 +20,34 @@
         <!-- START ARTICLE FEED -->
         <section class="articles">
             <div class="column is-8 is-offset-2">
-                <div class="columns">
+                <div class="columns is-multiline">
 
                 {% for post in blogpages %}
                     {% with post=post.specific %}  
 
-                        <div class="column is-one-third card">
-                            <div class="card-image">
-                            <figure class="image is-4by3">
-                                {% with post.main_image as main_image %}
-                                    {% if main_image %}{% image main_image fill-1280x960 %}{% endif %}
-                                {% endwith %}
-                            </figure>
-                            </div>
-                            <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <a href="{% pageurl post %}"><p class="title is-5">{{ post.title }}</p></a>
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{% pageurl post %}">
+                                        <figure class="image is-4by3">
+                                            {% with post.main_image as main_image %}
+                                                {% if main_image %}{% image main_image fill-1280x960 %}{% endif %}
+                                            {% endwith %}
+                                        </figure>
+                                    </a>
                                 </div>
-                            </div>
-                        
-                            <div class="content">
-                                {{ post.intro }}
-                                <br>
-                                {{ post.date }}
-                            </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <a href="{% pageurl post %}"><p class="title is-5">{{ post.title }}</p></a>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="content">
+                                        <p>{{ post.intro }}</p>
+                                        <p>{{ post.date }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
