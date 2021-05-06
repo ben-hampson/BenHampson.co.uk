@@ -16,6 +16,34 @@
       </p>
     </div>
   </section>
+    
+  {{ page.body|richtext }}
 
-    {{ page.body|richtext }}
+  <section class="section has-background-light">
+    <div class="container">
+      <div class="columns is-multiline">
+        {% for article in featured_articles %}
+          <div class="column is-one-third">
+            <article class="media notification is-info">
+              <figure class="media-left">
+                <span class="icon is-medium">
+                  <i class="fab fa-2x fa-css3-alt"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4">
+                    <a href="{% slugurl article.slug %}" class="">{{ article.title }}</h1></a>
+                  <p class="is-size-5">
+                    {{ article.intro }}
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
 {% endblock %}
