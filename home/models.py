@@ -18,11 +18,16 @@ class HomePage(Page):
         blank=True,
         help_text="Subtitle text for the hero section."
     )
+    hero_photo = models.ImageField(
+        blank=True,
+        help_text="Image of me to be displayed in the hero."
+    )
 
     # Configure the Admin interface
     content_panels = Page.content_panels + [
         FieldPanel("hero_title"),
         FieldPanel("hero_subtitle"),
+        FieldPanel('hero_photo'),
         FieldPanel('body', classname="full"),
     ]
 
