@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    
+
+    <!-- ==================================================================== -->
+
+<div class="container">
+    <!-- START ARTICLE FEED -->
+    <section class="articles">
+        <div class="column is-8 is-offset-2">
+            <!-- START ARTICLE -->
+            <div class="card article">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content has-text-centered">
+                            <p class="title article-title"><h1 class="title is-3">{{ page.title }}</h1></p>
+                            <p class="subtitle is-6"><i>{{ page.subtitle }}</i></p>
+                        </div>
+                    </div>
+                    <div class="content article-body">
+                        
+                        <!-- ARTICLE BODY -->
+                        {{ page.body|richtext }}
+
+                        <!-- STREAMFIELDS TEST -->
+                        {% for block in page.content %}
+                            {% include_block block %}
+                        {% endfor %}
+
+                        <!-- GALLERY -->
+                        {% if page.gallery_images.all %}
+                            <div class="box level">
+                                {% for item in page.gallery_images.all %}
+                                    <div class="level-item">
+                                        {% image item.image max-200x200 %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <!-- TAGS -->
+                        {% if page.tags.all.count %}
+                            <div class="tags">
+                                <h6 class="mt-3 mr-1">Tags:</h6>
+                                {% for tag in page.tags.all %}
+                                    <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button" class="ml-1">{{ tag }}</button></a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <!-- CATEGORIES -->
+                        {% with categories=page.categories.all %}
+                            {% if categories %}
+                                <h6 class="mt-3">Posted in:</h6>
+                                <p><ul>
+                                    {% for category in categories %}
+                                        <li style="display: inline">
+                                            {% image category.icon fill-32x32 style="vertical-align: middle" %}
+                                            {{ category.name }}
+                                        </li>
+                                    {% endfor %}
+                                </ul></p>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+            <!-- END ARTICLE -->
+        </div>
+    </section>
+</div>
+
+{% endblock %}

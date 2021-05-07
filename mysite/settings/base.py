@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blog',
     'streams',
     'contact',
+    'flex',
     'bulma',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
