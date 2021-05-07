@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags bulma_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    
+
+    <!-- ==================================================================== -->
+
+<div class="container">
+    <!-- START ARTICLE FEED -->
+    <section class="articles">
+        <div class="column is-8 is-offset-2">
+            <!-- START ARTICLE -->
+            <div class="card article">
+                <div class="card-content">
+                    <div class="has-text-centered">
+                        <p class="title article-title"><h1 class="title is-3">{{ page.title }}</h1></p>
+                    </div>
+                    <div class="content article-body">
+                        
+                        {{ self.intro | richtext }}
+                        <form action="{% pageurl page %}" method="POST">
+                            {% csrf_token %}
+                            {{ form | bulma }}
+                            <button class="button is-info" type="submit"><strong>Submit</strong></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
