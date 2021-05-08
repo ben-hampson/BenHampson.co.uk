@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'flex',
     'projects',
     'bulma',
+    'base',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
