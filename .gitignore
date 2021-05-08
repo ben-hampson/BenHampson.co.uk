@@ -126,3 +126,10 @@ dmypy.json
 
 # Wagtail
 mysite/settings/dev.py
+*.pyc
+.DS_Store
+*.swp
+/venv/
+/static/
+/media/
+.env
