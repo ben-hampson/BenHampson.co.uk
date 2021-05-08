@@ -1,4 +1,6 @@
 from django.db import models
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 from flex.models import FlexPage
 
@@ -14,9 +16,21 @@ class ProjectIndexPage(FlexPage):
         verbose_name_plural = "Project Index Pages"
 
 class ProjectPage(FlexPage):
-    """Project page class."""
+    """Project page model."""
 
     template = 'projects/project_page.html'
+
+    banner_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True, 
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = FlexPage.content_panels + [
+        ImageChooserPanel("banner_image"),
+    ]
 
     class Meta:
         verbose_name = "Project Page"
