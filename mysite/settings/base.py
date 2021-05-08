@@ -171,4 +171,4 @@ WAGTAIL_SITE_NAME = "mysite"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
 
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())
