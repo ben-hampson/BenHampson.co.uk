@@ -4,6 +4,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from blog.models import BlogPage
+from projects.models import ProjectPage
 
 
 class HomePage(Page):
@@ -33,6 +34,6 @@ class HomePage(Page):
 
     def get_context(self, request):
         context = super().get_context(request)
-        featured_articles = BlogPage.objects.live().filter(featured=True)
-        context['featured_articles'] = featured_articles
+        projects = ProjectPage.objects.live()
+        context['projects'] = projects
         return context
