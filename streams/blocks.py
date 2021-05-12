@@ -15,6 +15,7 @@ class TitleAndTextBlock(blocks.StructBlock):
 
 class RichtextBlock(blocks.RichTextBlock):
     """Richtext with all the features"""
+    features = ['h1', 'h2', 'h3', 'h4', 'h5', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'image', 'code', 'blockquote']
 
     class Meta:
         template = "streams/richtext_block.html"
