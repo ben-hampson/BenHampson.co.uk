@@ -5,6 +5,8 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
+from wagtailcodeblock.blocks import CodeBlock
+
 from streams import blocks
 
 class FlexPage(Page):
@@ -16,6 +18,7 @@ class FlexPage(Page):
         [
             ("full_richtext", blocks.RichtextBlock(classname="richtext")),
             ("features_and_tools", blocks.FeaturesAndToolsBlock(classname="featuresandtools")),
+            ("codeblock", CodeBlock(label='Code'))
         ],
         null=True,
         blank=True

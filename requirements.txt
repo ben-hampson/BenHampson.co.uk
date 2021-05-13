@@ -33,8 +33,10 @@ six==1.15.0
 soupsieve==2.2.1
 sqlparse==0.4.1
 tablib==3.0.0
+telepath==0.1.1
 urllib3==1.26.4
-wagtail==2.12.4
+wagtail==2.13
+wagtailcodeblock==1.17.1.0
 webencodings==0.5.1
 whitenoise==5.2.0
 Willow==1.4

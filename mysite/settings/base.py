@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'projects',
     'bulma',
     'storages',
+    'wagtailcodeblock',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -173,3 +174,6 @@ WAGTAIL_SITE_NAME = "mysite"
 BASE_URL = 'http://example.com'
 
 # django_on_heroku.settings(locals())
+
+# Wagtail Code Block settings
+WAGTAIL_CODE_BLOCK_THEME = None
