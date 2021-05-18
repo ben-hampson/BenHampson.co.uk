@@ -28,8 +28,8 @@
         {% endblock %}
     </head>
 
-    
     <body class="{% block body_class %}{% endblock %}">
+      <div id="wrapper">
         
         <!-- NAVBAR START -->
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -81,7 +81,8 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
-
+      </div>
+      
         <!-- FOOTER START -->
 
         <footer class="footer">
