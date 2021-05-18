@@ -18,7 +18,7 @@ class FlexPage(Page):
         [
             ("full_richtext", blocks.RichtextBlock(classname="richtext")),
             ("features_and_tools", blocks.FeaturesAndToolsBlock(classname="featuresandtools")),
-            ("codeblock", CodeBlock(label='Code'))
+            ("codeblock", CodeBlock(label='Code Block', default_language='python'))
         ],
         null=True,
         blank=True
