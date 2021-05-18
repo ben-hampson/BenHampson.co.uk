@@ -177,11 +177,3 @@ BASE_URL = 'http://example.com'
 
 # Wagtail Code Block settings
 WAGTAIL_CODE_BLOCK_THEME = None
-
-# Email Settings
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
