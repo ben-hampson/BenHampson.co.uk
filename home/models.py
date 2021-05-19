@@ -1,10 +1,11 @@
 from django.db import models
 
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from blog.models import BlogPage
 from projects.models import ProjectPage
+from streams.blocks import SkillsAndToolsBlock
 
 
 class HomePage(Page):
@@ -23,6 +24,9 @@ class HomePage(Page):
         blank=True,
         help_text="Image of me to be displayed in the hero."
     )
+    skills_and_tools = StreamField([
+        ('skills_and_tools', SkillsAndToolsBlock())
+    ], blank=True)
 
     # Configure the Admin interface
     content_panels = Page.content_panels + [
@@ -30,6 +34,7 @@ class HomePage(Page):
         FieldPanel("hero_subtitle"),
         FieldPanel('hero_photo'),
         FieldPanel('body', classname="full"),
+        StreamFieldPanel('skills_and_tools'),
     ]
 
     def get_context(self, request):

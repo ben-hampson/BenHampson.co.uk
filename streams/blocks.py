@@ -1,6 +1,7 @@
 """Streamfields live here."""
 
 from wagtail.core import blocks
+from wagtail.images.blocks import ImageChooserBlock
 
 class TitleAndTextBlock(blocks.StructBlock):
     """Title and text and nothing else."""
@@ -32,3 +33,22 @@ class FeaturesAndToolsBlock(blocks.StructBlock):
         template = "streams/features_and_tools_block.html"
         icon = "edit"
         label = "Features & Tools"
+
+class SkillsAndToolsBlock(blocks.StructBlock):
+    """Showcase my skills and tools."""
+
+    title = blocks.CharBlock(required=False, help_title="Add a title")
+
+    skills = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=False)),
+                ("title", blocks.CharBlock(required=False, max_length=100))
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/skills_and_tools_block.html"
+        icon = "edit"
+        label = "Skills & Tools"

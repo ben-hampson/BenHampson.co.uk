@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+<div class="columns">
+    <div class="column"></div>
+    <div class="column is-5">
+
+        <div class="columns is-mobile">
+            {% for skill in self.skills %}
+                <div class="column">
+                    {% image skill.image height-60 %}
+                </div>
+            {% endfor%}
+        </div>
+    
+    </div>
+    <div class="column"></div>
+</div>

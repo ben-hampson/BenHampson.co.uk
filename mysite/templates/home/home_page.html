@@ -63,6 +63,14 @@
     
   {{ page.body|richtext }}
 
+  <!-- SKILLS & TOOLS -->
+  <section class="section">
+    <!-- {{ page.skills_and_tools }} -->
+    {% for block in page.skills_and_tools %}
+      {% include_block block %}
+    {% endfor %}
+  </section>
+
   <section class="section has-background-light">
     <div class="columns">
       <div class="column"></div>
@@ -70,7 +78,7 @@
         <div class="container">
           <h2 class="title is-3">Projects</h2>
           <div class="columns is-multiline">
-            {% for article in projects %}
+            {% for project in projects %}
               <div class="column is-one-third">
                 <article class="media notification is-info">
                   <!-- <figure class="media-left">
@@ -81,9 +89,9 @@
                   <div class="media-content">
                     <div class="content">
                       <h1 class="title is-size-5">
-                        <a href="{% slugurl article.slug %}" class="">{{ article.title }}</h1></a>
+                        <a href="{% slugurl project.slug %}" class="">{{ project.title }}</h1></a>
                       <p class="">
-                        {{ article.subtitle }}
+                        {{ project.subtitle }}
                       </p>
                     </div>
                   </div>
