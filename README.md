@@ -1,7 +1,7 @@
 # [BenHampson.co.uk](http://benhampson.co.uk)
 > [Django](https://djangoproject.com) + [Wagtail](https://wagtail.io) + [Bulma](https://bulma.io/).
 
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
+![Screenshot of BenHampson.co.uk](https://github.com/Ben-Hampson/My-Website/blob/master/screenshot.png?raw=true)
 
 ### 🔗 [BenHampson.co.uk](http://www.benhampson.co.uk/)
 ### 📃 [Article](http://www.benhampson.co.uk/projects/benhampsoncouk/)
