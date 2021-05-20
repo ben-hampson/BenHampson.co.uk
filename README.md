@@ -17,8 +17,6 @@ A website to host my portfolio, articles, and share a bit about me. This was als
 
 ## ⚙️ Features
 
-In addition to the basic Django models, views, and templates, this project makes use of:
-
 - StreamFields + Custom StructBlocks
 - Contact Me page
 
