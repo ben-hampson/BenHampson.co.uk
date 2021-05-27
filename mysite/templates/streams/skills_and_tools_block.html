@@ -1,9 +1,9 @@
 {% load wagtailimages_tags %}
 <div class="columns">
     <div class="column"></div>
-    <div class="column is-5">
+    <div class="column is-5-desktop is-8-tablet">
 
-        <div class="columns is-mobile">
+        <div class="columns is-variable is-4-desktop is-2-mobile is-mobile">
             {% for skill in self.skills %}
                 <div class="column">
                     {% image skill.image height-60 %}
