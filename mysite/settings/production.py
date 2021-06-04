@@ -20,7 +20,7 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-DEBUG = True
+DEBUG = int(env['DEBUG'])
 
 try:
     from .local import *
@@ -28,7 +28,14 @@ except ImportError:
     pass
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_DATABASE_NAME', os.path.join(BASE_DIR)),
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+    }
 }
 	
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
