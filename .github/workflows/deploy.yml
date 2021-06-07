@@ -20,4 +20,4 @@ jobs:
       - name: Add Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy with rsync
-        run: rsync -avz --exclude-from './dist/rsync-exclude.txt' ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/bh-site
+        run: rsync -avz ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/bh-site
