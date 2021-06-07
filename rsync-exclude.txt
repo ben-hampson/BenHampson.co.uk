@@ -1,4 +1,6 @@
 env/
 __pycache__
 .git
+.github
 db.sqlite3
+screenshot.png
