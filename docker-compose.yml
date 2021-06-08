@@ -21,6 +21,13 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - .env.dev.db
+  smtp:
+    image: juanluisbaptiste/postfix:latest
+    restart: always
+    expose:
+      - 25
+    env_file:
+      - .env.dev
 
 volumes:
     postgres_data:

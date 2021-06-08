@@ -46,7 +46,5 @@ ALLOWED_HOSTS = ['*']
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-relay.sendinblue.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = env['SMTP_LOGIN']
-EMAIL_HOST_PASSWORD = env['SMTP_PASSWORD']
+EMAIL_HOST = env['EMAIL_HOST']
+EMAIL_PORT = env['EMAIL_PORT']

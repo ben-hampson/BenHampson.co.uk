@@ -23,6 +23,13 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - .env.prod.db
+  smtp:
+    image: juanluisbaptiste/postfix:latest
+    restart: always
+    expose:
+      - 25
+    env_file:
+      - .env.dev
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx

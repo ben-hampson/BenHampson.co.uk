@@ -136,3 +136,5 @@ mysite/settings/dev.py
 
 # VS Code
 .vscode
+
+rsync-include.txt
