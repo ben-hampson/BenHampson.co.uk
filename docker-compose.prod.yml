@@ -29,7 +29,7 @@ services:
     expose:
       - 25
     env_file:
-      - .env.dev
+      - .env.prod
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx
