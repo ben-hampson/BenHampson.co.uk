@@ -26,8 +26,8 @@ services:
   smtp:
     image: juanluisbaptiste/postfix:latest
     restart: always
-    expose:
-      - 25
+    ports:
+      - 25:25  # Maybe unnecessary?
     env_file:
       - .env.prod
   nginx-proxy:
